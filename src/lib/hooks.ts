@@ -1,22 +1,22 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useSyncExternalStore } from "react";
 import { project, type Projection } from "./engine";
 import { todayStr } from "./dates";
 import { useApp } from "./store";
-import type { Scenario } from "./types";
+import type { Plan, Scenario } from "./types";
 
 export function useHydrated(): boolean {
-  const [hydrated, setHydrated] = useState(false);
-  useEffect(() => {
-    const unsub = useApp.persist.onFinishHydration(() => setHydrated(true));
-    if (useApp.persist.hasHydrated()) setHydrated(true);
-    return unsub;
-  }, []);
-  return hydrated;
+  return useSyncExternalStore(
+    (cb) => useApp.persist.onFinishHydration(cb),
+    () => useApp.persist.hasHydrated(),
+    () => false,
+  );
 }
 
-export function useProjection(opts: { planId?: string | null; scenario?: Scenario; weeks?: number } = {}): Projection | null {
+export function useProjection(
+  opts: { planId?: string | null; plan?: Plan; scenario?: Scenario; weeks?: number } = {},
+): Projection | null {
   const profile = useApp((s) => s.profile);
   const calibration = useApp((s) => s.calibration);
   const anchor = useApp((s) => s.anchor);
@@ -32,9 +32,10 @@ export function useProjection(opts: { planId?: string | null; scenario?: Scenari
   const weeks = opts.weeks ?? horizonWeeks;
   const today = todayStr();
 
+  const planOverride = opts.plan;
   return useMemo(() => {
     if (!profile || !anchor) return null;
-    const plan = plans.find((p) => p.id === planId);
+    const plan = planOverride ?? plans.find((p) => p.id === planId);
     return project({ profile, calibration, anchor, workouts, meals, plan, scenario, weeks, today });
-  }, [profile, calibration, anchor, workouts, meals, plans, planId, scenario, weeks, today]);
+  }, [profile, calibration, anchor, workouts, meals, plans, planId, planOverride, scenario, weeks, today]);
 }

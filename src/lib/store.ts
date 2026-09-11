@@ -31,6 +31,9 @@ interface AppState {
   profile: Profile | null;
   frame: Frame;
   anchor: Anchor | null;
+  /** Where the journey began; never re-anchored. */
+  start: Anchor | null;
+  skinTone: string;
   calibration: Calibration;
   plans: Plan[];
   activePlanId: string | null;
@@ -46,6 +49,7 @@ interface AppState {
   completeOnboarding: (profile: Profile, frame: Frame, planId: string) => void;
   setProfile: (profile: Profile) => void;
   setFrame: (frame: Frame) => void;
+  setSkinTone: (hex: string) => void;
   setScenario: (s: Scenario) => void;
   setHorizonWeeks: (w: number) => void;
   setHideNumbers: (v: boolean) => void;
@@ -72,6 +76,8 @@ const initial = {
   profile: null,
   frame: DEFAULT_FRAME,
   anchor: null,
+  start: null,
+  skinTone: "#d9a684",
   calibration: DEFAULT_CALIBRATION,
   plans: [] as Plan[],
   activePlanId: null,
@@ -92,17 +98,20 @@ export const useApp = create<AppState>()(
 
       completeOnboarding: (profile, frame, planId) => {
         const plans = planTemplates(profile);
+        const anchor = { date: todayStr(), body: initialBody(profile) };
         set({
           onboarded: true,
           profile,
           frame,
-          anchor: { date: todayStr(), body: initialBody(profile) },
+          anchor,
+          start: anchor,
           plans,
           activePlanId: plans.some((p) => p.id === planId) ? planId : plans[0].id,
         });
       },
       setProfile: (profile) => set({ profile }),
       setFrame: (frame) => set({ frame }),
+      setSkinTone: (skinTone) => set({ skinTone }),
       setScenario: (scenario) => set({ scenario }),
       setHorizonWeeks: (horizonWeeks) => set({ horizonWeeks }),
       setHideNumbers: (hideNumbers) => set({ hideNumbers }),
