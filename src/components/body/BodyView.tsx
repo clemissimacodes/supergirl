@@ -64,14 +64,14 @@ interface BodyViewProps extends FigureProps {
 
 export default function BodyView({ className, interactive = true, zoom = 1, ...fig }: BodyViewProps) {
   const h = fig.params.height;
-  const dist = h * 1.7 * zoom;
+  const dist = h * 1.9 * zoom;
   return (
     <div className={className ?? "h-full w-full"}>
       <Canvas
         shadows
         dpr={[1, 2]}
         camera={{ position: [0, h * 0.55, dist], fov: 35, near: 0.05, far: 50 }}
-        onCreated={({ camera }) => camera.lookAt(0, h * 0.5, 0)}
+        onCreated={({ camera }) => camera.lookAt(0, h * 0.53, 0)}
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
       >
@@ -89,7 +89,7 @@ export default function BodyView({ className, interactive = true, zoom = 1, ...f
             enableZoom={false}
             minPolarAngle={Math.PI / 2.6}
             maxPolarAngle={Math.PI / 1.8}
-            target={[0, h * 0.5, 0]}
+            target={[0, h * 0.53, 0]}
           />
         )}
       </Canvas>
