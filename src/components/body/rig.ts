@@ -152,7 +152,7 @@ export class BodyRig {
     };
     const pair = <T>(f: () => T): [T, T] => [f(), f()];
 
-    this.torso = new Tube(8, m.core);
+    this.torso = new Tube(9, m.core);
     this.neck = new Tube(2, m.skin);
     this.head = sphere(m.skin);
     this.deltoid = pair(() => sphere(m.shoulders));
@@ -192,7 +192,9 @@ export class BodyRig {
     const y = p.y;
 
     this.torso.update([
-      { y: y.shoulder + 0.02 + lift, rx: p.chestRx * 0.7, rz: p.chestRz * 0.7, rzBack: p.chestRz * 0.7 },
+      // Trapezius slope: the torso narrows up into the base of the neck.
+      { y: y.shoulder + 0.05 + lift, rx: p.neckR * 1.3, rz: p.neckR * 1.15, rzBack: p.neckR * 1.3 },
+      { y: y.shoulder + 0.02 + lift, rx: p.chestRx * 0.78, rz: p.chestRz * 0.72, rzBack: p.chestRz * 0.8 },
       { y: y.shoulder + lift, rx: p.chestRx * 0.97, rz: p.chestRz * 0.9 * breathe, rzBack: (p.chestRz + p.backBulge) * breathe },
       { y: y.chest + lift * 0.5, rx: p.chestRx * breathe, rz: p.chestRz * breathe, rzBack: (p.chestRz + p.backBulge * 1.2) * breathe },
       { y: y.midriff, rx: (p.chestRx + p.waistRx) / 2, rz: (p.chestRz + p.waistRz) / 2, rzBack: (p.chestRz + p.waistRz) / 2 + p.backBulge * 0.6 },

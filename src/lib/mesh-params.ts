@@ -179,6 +179,6 @@ export function lerpParams(a: MeshParams, b: MeshParams, t: number): MeshParams 
     (out as unknown as Record<string, number>)[k] = l(a[k] as number, b[k] as number);
   }
   for (const k of Object.keys(a.y) as (keyof MeshParams["y"])[]) out.y[k] = l(a.y[k], b.y[k]);
-  out.heat = t < 0.5 ? a.heat : b.heat;
+  out.heat = b.heat;
   return out;
 }

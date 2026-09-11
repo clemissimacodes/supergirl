@@ -66,6 +66,17 @@ describe("volume", () => {
 });
 
 describe("simulateWeek", () => {
+  it("caps fat loss and slows it near the floor", () => {
+    const b = initialBody(her);
+    const crash = simulateWeek(b, her, DEFAULT_CALIBRATION, { sets: emptyRegions(), kcal: 600, proteinG: 120, cardioMin: 0 });
+    expect(b.fatKg - crash.fatKg).toBeLessThanOrEqual(64 * 0.01 + 1e-9);
+
+    const lean = { ...b, fatKg: b.fatKg * 0.6 };
+    const leanCut = simulateWeek(lean, her, DEFAULT_CALIBRATION, { sets: emptyRegions(), kcal: maintenanceKcal(her) - 500, proteinG: 120, cardioMin: 0 });
+    const normalCut = simulateWeek(b, her, DEFAULT_CALIBRATION, { sets: emptyRegions(), kcal: maintenanceKcal(her) - 500, proteinG: 120, cardioMin: 0 });
+    expect(lean.fatKg - leanCut.fatKg).toBeLessThan(b.fatKg - normalCut.fatKg);
+  });
+
   it("loses fat in a deficit and gains fat in a surplus", () => {
     const b = initialBody(her);
     const maint = maintenanceKcal(her);
@@ -101,7 +112,7 @@ describe("simulateWeek", () => {
     for (let i = 0; i < 200; i++) {
       b = simulateWeek(b, her, DEFAULT_CALIBRATION, { sets: emptyRegions(), kcal: 800, proteinG: 120, cardioMin: 0 });
     }
-    expect(bodyFatPct(b)).toBeGreaterThanOrEqual(11.9);
+    expect(bodyFatPct(b)).toBeGreaterThanOrEqual(13.9);
   });
 
   it("keeps a year of realistic training within believable bounds", () => {
@@ -142,6 +153,10 @@ describe("project", () => {
 
   it("measures adherence against the plan", () => {
     expect(measureAdherence([], plan, today)).toBeNull();
+    // Day one: a single completed session counts as being on pace, not 1/28th of a month.
+    const dayOne = [{ id: "d1", date: today, entries: plan.days[0].entries }];
+    expect(measureAdherence(dayOne, plan, today, today)).toBeGreaterThanOrEqual(1);
+    expect(measureAdherence(dayOne, plan, today)).toBeLessThan(0.2);
     const full = Array.from({ length: 4 }, (_, w) =>
       plan.days.filter((d) => d.entries.length).map((d, i) => ({ id: `${w}-${i}`, date: addDays(today, -(w * 7 + i)), entries: d.entries })),
     ).flat();

@@ -20,6 +20,7 @@ export function useProjection(
   const profile = useApp((s) => s.profile);
   const calibration = useApp((s) => s.calibration);
   const anchor = useApp((s) => s.anchor);
+  const start = useApp((s) => s.start);
   const workouts = useApp((s) => s.workouts);
   const meals = useApp((s) => s.meals);
   const plans = useApp((s) => s.plans);
@@ -36,6 +37,6 @@ export function useProjection(
   return useMemo(() => {
     if (!profile || !anchor) return null;
     const plan = planOverride ?? plans.find((p) => p.id === planId);
-    return project({ profile, calibration, anchor, workouts, meals, plan, scenario, weeks, today });
-  }, [profile, calibration, anchor, workouts, meals, plans, planId, planOverride, scenario, weeks, today]);
+    return project({ profile, calibration, anchor, workouts, meals, plan, scenario, weeks, today, startDate: start?.date });
+  }, [profile, calibration, anchor, start, workouts, meals, plans, planId, planOverride, scenario, weeks, today]);
 }

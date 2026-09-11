@@ -213,29 +213,46 @@ export function simulateWeek(
     leanGain += muscleKg[r] - current;
   }
 
-  const weeklyBalance = dailyBalance * 7 * fraction;
-  const fatDelta = ((weeklyBalance - leanGain * KCAL_PER_KG_MUSCLE) / KCAL_PER_KG_FAT) * cal.fatRate;
+  // The body fights a deficit: NEAT drops and metabolism adapts, so only part of it "counts".
+  const effectiveBalance = dailyBalance < 0 ? dailyBalance * 0.85 : dailyBalance;
+  const weeklyBalance = effectiveBalance * 7 * fraction;
+  let fatDelta = ((weeklyBalance - leanGain * KCAL_PER_KG_MUSCLE) / KCAL_PER_KG_FAT) * cal.fatRate;
   const lean = body.otherLeanKg + sumRegions(muscleKg);
-  const floorPct = p.sex === "male" ? 0.05 : 0.12;
+  const floorPct = p.sex === "male" ? 0.06 : 0.14;
   const fatFloor = (lean * floorPct) / (1 - floorPct);
+  if (fatDelta < 0) {
+    // Fat loss slows down as you approach the floor; the last few percent are the hardest.
+    const bf = body.fatKg / (body.fatKg + lean);
+    fatDelta *= clamp((bf - floorPct) / (floorPct * 0.5), 0.15, 1);
+    // And no faster than ~1% of body weight per week, whatever the spreadsheet says.
+    fatDelta = Math.max(fatDelta, -weight * 0.01 * fraction);
+  }
   const fatKg = Math.max(fatFloor, body.fatKg + fatDelta);
 
   return { fatKg, otherLeanKg: body.otherLeanKg, muscleKg };
 }
 
-/** Actual sets/week completed vs. planned over the last 28 days, or null if no logs. */
+/**
+ * Actual sets completed vs. planned over the last 28 days (or since the
+ * journey started, if that is more recent), or null if nothing was logged.
+ */
 export function measureAdherence(
   workouts: WorkoutLog[],
   plan: Plan | undefined,
   today: string,
+  since?: string,
 ): number | null {
   if (!plan) return null;
-  const planned = totalSets(plan.days.flatMap((d) => d.entries)) * 4;
-  if (planned === 0) return null;
-  const recent = workouts.filter((w) => daysBetween(w.date, today) < 28 && daysBetween(w.date, today) >= 0);
+  const weeklyPlanned = totalSets(plan.days.flatMap((d) => d.entries));
+  if (weeklyPlanned === 0) return null;
+  const windowDays = Math.max(1, Math.min(28, since ? daysBetween(since, today) + 1 : 28));
+  const recent = workouts.filter((w) => {
+    const age = daysBetween(w.date, today);
+    return age >= 0 && age < windowDays;
+  });
   if (recent.length === 0) return null;
   const done = recent.reduce((s, w) => s + totalSets(w.entries), 0);
-  return clamp(done / planned, 0, 1.2);
+  return clamp(done / (weeklyPlanned * (windowDays / 7)), 0, 1.2);
 }
 
 function mealsAverage(meals: MealLog[], from: string, to: string): { kcal: number; proteinG: number; days: number } | null {
@@ -278,6 +295,8 @@ export interface ProjectionArgs {
   scenario: Scenario;
   weeks: number;
   today: string;
+  /** When the journey began; bounds the adherence window. Defaults to the anchor date. */
+  startDate?: string;
 }
 
 export interface Projection {
@@ -291,6 +310,7 @@ export interface Projection {
 /** Roll the anchor forward through real logs to today, then through the plan. */
 export function project(a: ProjectionArgs): Projection {
   const { profile, calibration, anchor, workouts, meals, plan, scenario, weeks, today } = a;
+  const startDate = a.startDate ?? anchor.date;
 
   // Present: anchor -> today, driven by what actually happened.
   let body = anchor.body;
@@ -319,7 +339,7 @@ export function project(a: ProjectionArgs): Projection {
   };
 
   // Future: today -> horizon, driven by the plan under the chosen scenario.
-  const measured = measureAdherence(workouts, plan, today);
+  const measured = measureAdherence(workouts, plan, today, startDate);
   const adherence = scenario === "commit" ? 1 : measured ?? 0.85;
   const planSets = scaleRegions(planWeeklySets(plan), adherence);
   const planCardio = (plan?.days.reduce((s, d) => s + (d.cardioMin ?? 0), 0) ?? 0) * adherence;
