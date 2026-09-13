@@ -16,3 +16,10 @@ Then open `http://localhost:4173`.
 
 Each sheet is sized at a social-friendly 4:5 ratio. Use the browser's print command to export the
 complete eight-sheet set as a PDF.
+
+## Programming references
+
+The routine adapts movements and sequencing principles from publicly available
+[Pilates by Izzy glute-and-core training](https://www.youtube.com/watch?v=TSfv--M7klg) and
+[Pamela Reif's no-equipment ab workout](https://www.youtube.com/watch?v=AnYl6Nk9GOA). The poster
+remains independently branded and does not imply endorsement by either creator.
