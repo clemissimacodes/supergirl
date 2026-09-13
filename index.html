@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="A seven-day, equipment-light travel workout built for strength, posture, and consistency."
+      content="A screenshot-ready seven-day travel workout using bodyweight and one medium resistance band."
     />
-    <meta name="theme-color" content="#f2f0eb" />
-    <title>My Travel Workout</title>
+    <title>My Travel Workout — 7 Day Edit</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,148 +17,403 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="My workout, back to top">
-        <span class="wordmark-dot"></span>
-        MY WORKOUT
-      </a>
-      <div class="header-meta">
-        <span>7 DAYS</span>
-        <span>1 BAND</span>
-        <span>ANYWHERE</span>
-      </div>
-      <button class="icon-button" id="share-top" type="button" aria-label="Share this routine">
-        <svg aria-hidden="true" viewBox="0 0 24 24">
-          <path d="M7 12v7h10v-7M12 16V3m0 0L8 7m4-4 4 4" />
-        </svg>
-      </button>
-    </header>
+    <main class="poster-stack">
+      <article class="poster poster-cover" aria-label="Seven day workout cover">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>TRAVEL EDIT / 01</p>
+        </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-kicker">
-          <span>TRAVEL SERIES / 01</span>
-          <span>BODYWEIGHT + MEDIUM BAND</span>
-        </div>
-        <h1>
-          Strong looks
-          <span class="italic">good</span>
-          <span class="outline">everywhere.</span>
-        </h1>
-        <div class="hero-bottom">
-          <p>
-            A focused week of athletic conditioning, Pilates control, and banded glute work.
-            Designed for consistency—not punishment.
-          </p>
-          <a class="text-link" href="#routine">START THE WEEK <span>↓</span></a>
-        </div>
-      </section>
+        <section class="cover-title">
+          <p class="micro">7 DAYS · 1 MEDIUM BAND · ANYWHERE</p>
+          <h1>Strong looks<br /><em>good</em> everywhere.</h1>
+        </section>
 
-      <section class="manifesto" aria-label="Plan principles">
-        <p class="eyebrow">THE FORMULA</p>
-        <div class="formula-grid">
-          <article>
-            <span class="formula-number">01</span>
-            <h2>Lengthen</h2>
-            <p>Controlled Pilates-inspired core and posture work.</p>
-          </article>
-          <article>
-            <span class="formula-number">02</span>
-            <h2>Strengthen</h2>
-            <p>Athletic bodyweight patterns with a single medium band.</p>
-          </article>
-          <article>
-            <span class="formula-number">03</span>
-            <h2>Recover</h2>
-            <p>One low-impact reset so your body can actually adapt.</p>
-          </article>
-        </div>
-      </section>
+        <section class="cover-grid">
+          <div class="cover-rule">
+            <span>DAILY BASELINE</span>
+            <strong>12K</strong>
+            <p>steps minimum<br />easy pace counts</p>
+          </div>
+          <ol class="week-list">
+            <li><span>01</span><strong>Core ignition</strong><small>core + cardio</small></li>
+            <li><span>02</span><strong>Banded lift</strong><small>glutes + back</small></li>
+            <li><span>03</span><strong>Long lines</strong><small>legs + posture</small></li>
+            <li><span>04</span><strong>Athletic sculpt</strong><small>full body</small></li>
+            <li><span>05</span><strong>Deep core</strong><small>abs + mobility</small></li>
+            <li><span>06</span><strong>Glute endurance</strong><small>glutes + legs</small></li>
+            <li><span>07</span><strong>The reset</strong><small>recovery + walk</small></li>
+          </ol>
+        </section>
 
-      <section class="routine" id="routine">
-        <div class="section-heading">
+        <footer class="poster-footer cover-footer">
+          <p>CONTROL / STRENGTH / CONSISTENCY</p>
+          <span>01 / 08</span>
+        </footer>
+      </article>
+
+      <article class="poster workout-poster pink" aria-label="Day one core ignition workout">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>DAY 01 / CORE + CARDIO</p>
+        </header>
+
+        <section class="day-title">
           <div>
-            <p class="eyebrow">THE ROUTINE</p>
-            <h2>Your week,<br /><span class="italic">in motion.</span></h2>
+            <p class="micro">45–55 MIN · HIGH ENERGY</p>
+            <h2>Core<br /><em>ignition.</em></h2>
           </div>
-          <div class="progress-wrap">
-            <div class="progress-copy">
-              <span>WEEKLY PROGRESS</span>
-              <span id="progress-count">0 / 7</span>
-            </div>
-            <div class="progress-track" aria-hidden="true">
-              <span id="progress-bar"></span>
-            </div>
-          </div>
-        </div>
+          <div class="step-stamp"><span>+</span><strong>12K</strong><small>STEPS</small></div>
+        </section>
 
-        <div class="day-tabs" id="day-tabs" role="tablist" aria-label="Workout days"></div>
-
-        <article class="workout-card" id="workout-card" aria-live="polite">
-          <div class="workout-intro">
-            <div>
-              <p class="day-label" id="day-label"></p>
-              <h3 id="workout-title"></h3>
-            </div>
-            <div class="workout-stats" id="workout-stats"></div>
+        <section class="circuit-grid">
+          <div class="circuit">
+            <h3><span>01</span> WARM UP · 1X</h3>
+            <ul>
+              <li><b>5 MIN</b> Easy jog or heel-to-butt march</li>
+              <li><b>20 EA</b> Standing stretch + cross crunch</li>
+              <li><b>30</b> Scissor kicks</li>
+            </ul>
           </div>
-
-          <div class="workout-body">
-            <div class="blocks" id="workout-blocks"></div>
-            <aside class="coach-note">
-              <span class="note-mark">↳</span>
-              <div>
-                <p class="eyebrow">TODAY'S NOTE</p>
-                <p id="coach-note"></p>
-              </div>
-            </aside>
+          <div class="circuit">
+            <h3><span>02</span> TWIST · 3X</h3>
+            <ul>
+              <li><b>30</b> Hip-twist jumps</li>
+              <li><b>30</b> Plank twists</li>
+              <li><b>15 EA</b> Forearm reach-throughs</li>
+            </ul>
           </div>
-
-          <div class="workout-actions">
-            <button class="primary-button" id="complete-button" type="button">
-              <span id="complete-label">MARK COMPLETE</span>
-              <span aria-hidden="true">✓</span>
-            </button>
-            <button class="secondary-button" id="download-button" type="button">
-              SAVE DAY CARD
-              <span aria-hidden="true">↓</span>
-            </button>
-            <button class="secondary-button" id="share-button" type="button">
-              SHARE ON X
-              <span aria-hidden="true">↗</span>
-            </button>
+          <div class="circuit">
+            <h3><span>03</span> CORE · 3X</h3>
+            <ul>
+              <li><b>30</b> Cross jacks</li>
+              <li><b>20</b> Crunches</li>
+              <li><b>20</b> Reverse crunches</li>
+            </ul>
           </div>
-        </article>
-      </section>
-
-      <section class="how-to">
-        <p class="eyebrow">BEFORE YOU START</p>
-        <div class="how-to-grid">
-          <h2>Quality over<br /><span class="italic">speed.</span></h2>
-          <div class="how-to-list">
-            <div>
-              <span>01</span>
-              <p>Move with control. The last two reps should feel challenging without losing form.</p>
-            </div>
-            <div>
-              <span>02</span>
-              <p>Rest 30–45 seconds between rounds. Take longer whenever your form needs it.</p>
-            </div>
-            <div>
-              <span>03</span>
-              <p>Sharp pain, dizziness, or numbness means stop. Swap jumps for step-outs as needed.</p>
-            </div>
+          <div class="circuit">
+            <h3><span>04</span> FINISH · 3X</h3>
+            <ul>
+              <li><b>20</b> Swan crunches</li>
+              <li><b>15 EA</b> Banded side leg raises</li>
+              <li><b>30 SEC</b> Fast feet or lateral hops</li>
+            </ul>
           </div>
-        </div>
-      </section>
+        </section>
+
+        <aside class="form-note"><span>FORM NOTE</span> Keep ribs knitted toward hips. Step out the jumps for low impact.</aside>
+        <footer class="poster-footer"><p>BODYWEIGHT + MEDIUM BAND</p><span>02 / 08</span></footer>
+      </article>
+
+      <article class="poster workout-poster acid" aria-label="Day two banded lift workout">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>DAY 02 / GLUTES + BACK</p>
+        </header>
+
+        <section class="day-title">
+          <div>
+            <p class="micro">45–50 MIN · MED–HIGH</p>
+            <h2>Banded<br /><em>lift.</em></h2>
+          </div>
+          <div class="step-stamp"><span>+</span><strong>12K</strong><small>STEPS</small></div>
+        </section>
+
+        <section class="circuit-grid">
+          <div class="circuit">
+            <h3><span>01</span> WARM UP · 1X</h3>
+            <ul>
+              <li><b>5 MIN</b> Easy jog or heel-to-butt march</li>
+              <li><b>20 EA</b> Standing stretch + cross crunch</li>
+              <li><b>20</b> Slow human saws</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>02</span> GLUTE · 3X</h3>
+            <ul>
+              <li><b>20</b> Hip-twist jumps</li>
+              <li><b>15 EA</b> Banded donkey kicks</li>
+              <li><b>20</b> Superman two-count holds</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>03</span> CONTROL · 3X</h3>
+            <ul>
+              <li><b>30</b> Scissor kicks</li>
+              <li><b>20</b> Reverse crunches</li>
+              <li><b>12</b> Pike push-up + knee tuck</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>04</span> FINISH · 3X</h3>
+            <ul>
+              <li><b>15 EA</b> Banded side-lying abductions</li>
+              <li><b>15 EA</b> Straight-leg glute lifts</li>
+              <li><b>30</b> Hand-tap planks</li>
+            </ul>
+          </div>
+        </section>
+
+        <aside class="form-note"><span>FORM NOTE</span> Band above knees. Keep outward pressure through every glute rep.</aside>
+        <footer class="poster-footer"><p>BODYWEIGHT + MEDIUM BAND</p><span>03 / 08</span></footer>
+      </article>
+
+      <article class="poster workout-poster blue" aria-label="Day three long lines workout">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>DAY 03 / LEGS + POSTURE</p>
+        </header>
+
+        <section class="day-title">
+          <div>
+            <p class="micro">40–45 MIN · MEDIUM</p>
+            <h2>Long<br /><em>lines.</em></h2>
+          </div>
+          <div class="step-stamp"><span>+</span><strong>12K</strong><small>STEPS</small></div>
+        </section>
+
+        <section class="circuit-grid">
+          <div class="circuit">
+            <h3><span>01</span> WARM UP · 1X</h3>
+            <ul>
+              <li><b>5 MIN</b> Easy jog or brisk walk</li>
+              <li><b>20 EA</b> Cross-leg pikes</li>
+              <li><b>10 EA</b> World's greatest stretch</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>02</span> PILATES · 3X</h3>
+            <ul>
+              <li><b>12 EA</b> Side-kneeling leg lifts</li>
+              <li><b>12 EA</b> Side-kneeling rainbows</li>
+              <li><b>20</b> Pilates toe taps</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>03</span> HAMSTRINGS · 3X</h3>
+            <ul>
+              <li><b>15</b> Towel hamstring slides</li>
+              <li><b>15</b> Banded good mornings</li>
+              <li><b>20</b> Bridge + band press-out</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>04</span> FINISH · 2X</h3>
+            <ul>
+              <li><b>20 EA</b> Inner-thigh circles</li>
+              <li><b>30</b> Plank twists</li>
+              <li><b>60 SEC</b> Half jacks or invisible rope</li>
+            </ul>
+          </div>
+        </section>
+
+        <aside class="form-note"><span>FORM NOTE</span> Think length before height. Reach through toes; keep waist lifted.</aside>
+        <footer class="poster-footer"><p>BODYWEIGHT + MEDIUM BAND</p><span>04 / 08</span></footer>
+      </article>
+
+      <article class="poster workout-poster orange" aria-label="Day four athletic sculpt workout">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>DAY 04 / FULL BODY</p>
+        </header>
+
+        <section class="day-title">
+          <div>
+            <p class="micro">45–55 MIN · HIGH ENERGY</p>
+            <h2>Athletic<br /><em>sculpt.</em></h2>
+          </div>
+          <div class="step-stamp"><span>+</span><strong>12K</strong><small>STEPS</small></div>
+        </section>
+
+        <section class="circuit-grid">
+          <div class="circuit">
+            <h3><span>01</span> WARM UP · 1X</h3>
+            <ul>
+              <li><b>5 MIN</b> Easy jog or invisible rope</li>
+              <li><b>10 EA</b> Reverse lunge + knee drive</li>
+              <li><b>10 EA</b> Walkout + shoulder tap</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>02</span> POWER · 3X</h3>
+            <ul>
+              <li><b>30</b> Hip-twist jumps</li>
+              <li><b>20</b> Tuck crunches</li>
+              <li><b>20</b> Sprinter twists</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>03</span> UPPER · 3X</h3>
+            <ul>
+              <li><b>15</b> Standing band rows</li>
+              <li><b>12</b> Band overhead presses</li>
+              <li><b>12</b> Close-grip or knee push-ups</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>04</span> FINISH · 3X</h3>
+            <ul>
+              <li><b>20</b> Banded reverse flies</li>
+              <li><b>20</b> Crunch flies</li>
+              <li><b>45 SEC</b> Heel-to-butt running</li>
+            </ul>
+          </div>
+        </section>
+
+        <aside class="form-note"><span>FORM NOTE</span> Land softly; knees track over toes. Clean reps beat fast reps.</aside>
+        <footer class="poster-footer"><p>BODYWEIGHT + MEDIUM BAND</p><span>05 / 08</span></footer>
+      </article>
+
+      <article class="poster workout-poster violet" aria-label="Day five deep core workout">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>DAY 05 / ABS + MOBILITY</p>
+        </header>
+
+        <section class="day-title">
+          <div>
+            <p class="micro">30–35 MIN · LOW–MED</p>
+            <h2>Deep<br /><em>core.</em></h2>
+          </div>
+          <div class="step-stamp"><span>+</span><strong>12K</strong><small>STEPS</small></div>
+        </section>
+
+        <section class="circuit-grid">
+          <div class="circuit">
+            <h3><span>01</span> MOBILITY · 1X</h3>
+            <ul>
+              <li><b>60 SEC</b> Cat-cow to child's pose</li>
+              <li><b>8 EA</b> Thread-the-needle rotations</li>
+              <li><b>10</b> Slow roll-downs</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>02</span> CENTER · 3X</h3>
+            <ul>
+              <li><b>10 EA</b> Dead bug + band pull-apart</li>
+              <li><b>20</b> Tabletop toe taps</li>
+              <li><b>10 EA</b> Single-leg stretch</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>03</span> SIDE BODY · 2X</h3>
+            <ul>
+              <li><b>12 EA</b> Side plank knee-to-elbow</li>
+              <li><b>15 EA</b> Inner-thigh lifts</li>
+              <li><b>10 EA</b> Mermaid crunches</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>04</span> LENGTHEN · 1X</h3>
+            <ul>
+              <li><b>45 SEC</b> Cobra to child's pose</li>
+              <li><b>45 SEC</b> Figure four each side</li>
+              <li><b>60 SEC</b> Supine spinal twist</li>
+            </ul>
+          </div>
+        </section>
+
+        <aside class="form-note"><span>FORM NOTE</span> Exhale on effort. Move slowly enough to feel the deep core switch on.</aside>
+        <footer class="poster-footer"><p>BODYWEIGHT + MEDIUM BAND</p><span>06 / 08</span></footer>
+      </article>
+
+      <article class="poster workout-poster green" aria-label="Day six glute endurance workout">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>DAY 06 / GLUTES + LEGS</p>
+        </header>
+
+        <section class="day-title">
+          <div>
+            <p class="micro">35–45 MIN · MED–HIGH</p>
+            <h2>Glute<br /><em>endurance.</em></h2>
+          </div>
+          <div class="step-stamp"><span>+</span><strong>12K</strong><small>STEPS</small></div>
+        </section>
+
+        <section class="circuit-grid">
+          <div class="circuit">
+            <h3><span>01</span> ACTIVATE · 2X</h3>
+            <ul>
+              <li><b>20</b> Banded bridge press-outs</li>
+              <li><b>12 EA</b> Clamshells</li>
+              <li><b>10 EA</b> Fire-hydrant circles</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>02</span> BUILD · 3X</h3>
+            <ul>
+              <li><b>15</b> Banded squats + three pulses</li>
+              <li><b>12 EA</b> Reverse lunges</li>
+              <li><b>15 EA</b> Standing band abductions</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>03</span> SHAPE · 3X</h3>
+            <ul>
+              <li><b>15 EA</b> Donkey kick to fire hydrant</li>
+              <li><b>15 EA</b> Straight-leg rainbows</li>
+              <li><b>20</b> Banded frog pumps</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>04</span> FINISH · 2X</h3>
+            <ul>
+              <li><b>20 EA</b> Lateral band walks</li>
+              <li><b>30 SEC</b> Squat hold + pulses</li>
+              <li><b>30 SEC</b> Glute-bridge hold</li>
+            </ul>
+          </div>
+        </section>
+
+        <aside class="form-note"><span>FORM NOTE</span> Keep band tension. The burn stays in glutes—not lower back or knees.</aside>
+        <footer class="poster-footer"><p>BODYWEIGHT + MEDIUM BAND</p><span>07 / 08</span></footer>
+      </article>
+
+      <article class="poster workout-poster cream" aria-label="Day seven recovery workout">
+        <header class="poster-header">
+          <p>MY WORKOUT</p>
+          <p>DAY 07 / RECOVERY</p>
+        </header>
+
+        <section class="day-title">
+          <div>
+            <p class="micro">25 MIN + WALK · LOW</p>
+            <h2>The<br /><em>reset.</em></h2>
+          </div>
+          <div class="step-stamp"><span>=</span><strong>12K</strong><small>STEPS</small></div>
+        </section>
+
+        <section class="circuit-grid recovery-grid">
+          <div class="circuit">
+            <h3><span>01</span> WALK · EASY</h3>
+            <ul>
+              <li><b>12K</b> Relaxed daily steps</li>
+              <li><b>OPTION</b> Five relaxed 20-sec strides</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>02</span> RELEASE · 1X</h3>
+            <ul>
+              <li><b>60 SEC</b> Hip flexor each side</li>
+              <li><b>60 SEC</b> Hamstring fold each side</li>
+              <li><b>60 SEC</b> Figure four each side</li>
+            </ul>
+          </div>
+          <div class="circuit">
+            <h3><span>03</span> RESTORE · 1X</h3>
+            <ul>
+              <li><b>8 EA</b> 90/90 hip switches</li>
+              <li><b>8 EA</b> Open-book rotations</li>
+              <li><b>60 SEC</b> Legs up the wall</li>
+            </ul>
+          </div>
+          <blockquote>Recovery is training.<br /><em>Finish better than you started.</em></blockquote>
+        </section>
+
+        <aside class="form-note"><span>FORM NOTE</span> Keep it truly easy. Sharp pain, dizziness, or numbness means stop.</aside>
+        <footer class="poster-footer"><p>NO EQUIPMENT</p><span>08 / 08</span></footer>
+      </article>
     </main>
-
-    <footer>
-      <p>MY TRAVEL WORKOUT</p>
-      <p>BUILT TO MOVE / 2026</p>
-    </footer>
-
-    <div class="toast" id="toast" role="status" aria-live="polite">COPIED TO CLIPBOARD</div>
-    <script src="./script.js"></script>
   </body>
 </html>

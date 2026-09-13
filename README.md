@@ -1,6 +1,8 @@
 # My Travel Workout
 
-A minimal, shareable seven-day travel routine for bodyweight and one medium resistance band.
+A minimal, screenshot-ready poster set for a seven-day bodyweight and resistance-band travel
+routine. It includes a daily 12,000-step baseline, one week-at-a-glance sheet, and seven detailed
+4:5 workout sheets.
 
 ## Run locally
 
@@ -12,5 +14,5 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
-The app stores completed days in local browser storage. Each workout can also be downloaded as a
-1080×1350 image card or shared directly to X.
+Each sheet is sized at a social-friendly 4:5 ratio. Use the browser's print command to export the
+complete eight-sheet set as a PDF.
