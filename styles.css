@@ -1,13 +1,13 @@
 :root {
-  --ink: #171717;
-  --paper: #f4f1ea;
+  --ink: #20211e;
+  --paper: #f5f0e8;
   --soft-line: rgba(23, 23, 23, 0.2);
-  --pink: #ef6c91;
-  --acid: #dfff55;
-  --blue: #87bfe5;
-  --orange: #f89b55;
-  --violet: #aa91ee;
-  --green: #87c995;
+  --pink: #dd5e85;
+  --acid: #e7ff72;
+  --blue: #4386aa;
+  --orange: #d66f45;
+  --violet: #8062b7;
+  --green: #4d8d64;
 }
 
 * {
@@ -192,6 +192,45 @@ em {
   color: #675f36;
 }
 
+.week-list span::before {
+  background: var(--day-color);
+  border: 1px solid rgba(32, 33, 30, 0.28);
+  border-radius: 50%;
+  content: "";
+  display: inline-block;
+  height: 0.75cqw;
+  margin-right: 0.8cqw;
+  width: 0.75cqw;
+}
+
+.week-list li:nth-child(1) {
+  --day-color: #dd5e85;
+}
+
+.week-list li:nth-child(2) {
+  --day-color: #d7ab43;
+}
+
+.week-list li:nth-child(3) {
+  --day-color: #72afd0;
+}
+
+.week-list li:nth-child(4) {
+  --day-color: #e38a5e;
+}
+
+.week-list li:nth-child(5) {
+  --day-color: #9b82ca;
+}
+
+.week-list li:nth-child(6) {
+  --day-color: #71a982;
+}
+
+.week-list li:nth-child(7) {
+  --day-color: #bd9277;
+}
+
 .week-list strong {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.65cqw;
@@ -209,42 +248,50 @@ em {
 }
 
 .workout-poster.pink {
-  background: #f6e9ec;
+  background: #fae7ed;
   --accent: var(--pink);
 }
 
 .workout-poster.acid {
-  background: #f2f4df;
-  --accent: #9cb52d;
+  background: #f6edcf;
+  --accent: #b38320;
 }
 
 .workout-poster.blue {
-  background: #eaf2f6;
-  --accent: #4f9bca;
+  background: #e4f0f5;
+  --accent: var(--blue);
 }
 
 .workout-poster.orange {
-  background: #f7eee5;
-  --accent: #dc7541;
+  background: #f8e2d4;
+  --accent: var(--orange);
 }
 
 .workout-poster.violet {
-  background: #efebf6;
-  --accent: #7e63c6;
+  background: #eee7f7;
+  --accent: var(--violet);
 }
 
 .workout-poster.green {
-  background: #e8f1e8;
-  --accent: #4f9d64;
+  background: #e2efe5;
+  --accent: var(--green);
 }
 
 .workout-poster.cream {
-  background: var(--paper);
-  --accent: #ef6c91;
+  background: #f5eee4;
+  --accent: #b27056;
 }
 
 .workout-poster .poster-header p:first-child::before {
   background: var(--accent);
+}
+
+.workout-poster::after {
+  background: var(--accent);
+  content: "";
+  inset: 2.1cqw auto 2.1cqw 2.1cqw;
+  position: absolute;
+  width: 0.55cqw;
 }
 
 .day-title {
@@ -306,17 +353,17 @@ em {
 }
 
 .circuit-grid {
-  border-left: 1px solid var(--soft-line);
   border-top: 1px solid var(--soft-line);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr;
   min-height: 0;
 }
 
 .circuit {
   border-bottom: 1px solid var(--soft-line);
-  border-right: 1px solid var(--soft-line);
-  padding: 2.1cqw 2.4cqw;
+  display: grid;
+  grid-template-columns: 23cqw 1fr;
+  padding: 1.5cqw 0;
 }
 
 .circuit h3 {
@@ -324,7 +371,7 @@ em {
   font-size: 1cqw;
   font-weight: 500;
   letter-spacing: 0.07em;
-  margin: 0 0 2.1cqw;
+  margin: 0;
 }
 
 .circuit h3 span {
@@ -334,7 +381,7 @@ em {
 
 .circuit ul {
   display: grid;
-  gap: 1.25cqw;
+  gap: 0.75cqw;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -370,19 +417,17 @@ em {
 }
 
 .recovery-grid {
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
 }
 
 .recovery-grid blockquote {
   align-self: center;
   border-bottom: 1px solid var(--soft-line);
-  border-right: 1px solid var(--soft-line);
-  font-size: 2.8cqw;
-  grid-column: 1 / -1;
+  font-size: 2.4cqw;
   letter-spacing: -0.045em;
   line-height: 1.05;
   margin: 0;
-  padding: 3.2cqw;
+  padding: 2.2cqw;
   text-align: center;
 }
 

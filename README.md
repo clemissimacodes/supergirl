@@ -1,8 +1,8 @@
 # My Travel Workout
 
-A minimal, screenshot-ready poster set for a seven-day bodyweight and resistance-band travel
-routine. It includes a daily 12,000-step baseline, one week-at-a-glance sheet, and seven detailed
-4:5 workout sheets.
+A minimal, screenshot-ready poster set for six bodyweight and resistance-band travel workouts,
+Monday through Saturday, followed by a true Sunday rest day. It includes a daily 12,000-step
+baseline, one week-at-a-glance sheet, and seven color-coded 4:5 daily sheets.
 
 ## Run locally
 
