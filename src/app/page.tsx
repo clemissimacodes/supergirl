@@ -7,22 +7,12 @@ export default async function HomePage() {
   const entries = await listEntries();
 
   return (
-    <main className="shell">
-      <header className="top">
-        <h1 className="title">ask.</h1>
-        <p className="lede">
-          leave a question or a note. no name, no account — i usually write back
-          the same day.
-        </p>
+    <main className="timeline">
+      <header className="timeline-top">
+        <h1 className="timeline-title">Ask</h1>
+        <p className="timeline-lede">anonymous notes. i usually reply day-of.</p>
       </header>
       <QaApp initialEntries={entries} />
-      <footer className="foot">
-        format inspired by a friend&apos;s{" "}
-        <a href="https://jetpham.com/qa" target="_blank" rel="noreferrer">
-          qa page
-        </a>
-        .
-      </footer>
     </main>
   );
 }

@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Fraunces, Literata } from "next/font/google";
+import { Source_Sans_3 } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const sourceSans = Source_Sans_3({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  display: "swap",
-});
-
-const literata = Literata({
-  subsets: ["latin"],
-  variable: "--font-literata",
+  variable: "--font-sans",
   display: "swap",
 });
 
@@ -25,10 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${literata.variable}`}
-    >
+    <html lang="en" className={sourceSans.variable}>
       <body>{children}</body>
     </html>
   );

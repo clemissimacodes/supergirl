@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { Avatar } from "./Avatar";
 import { Nose } from "./Nose";
 
 type AskFormProps = {
@@ -44,35 +45,42 @@ export function AskForm({ onAsked }: AskFormProps) {
   }
 
   return (
-    <div className="ask-block">
-      <form className="ask-row" onSubmit={onSubmit}>
-        <input
-          className="ask-input"
-          type="text"
+    <div className="composer">
+      <Avatar kind="anon" />
+      <form className="composer-main" onSubmit={onSubmit}>
+        <textarea
+          className="composer-input"
           value={text}
           onChange={(e) => setText(e.target.value)}
           maxLength={1000}
+          rows={2}
           autoComplete="off"
-          autoCorrect="off"
           spellCheck
-          placeholder="what’s on your mind?"
+          placeholder="What’s on your mind?"
           aria-label="your question or comment"
           disabled={pending}
         />
-        <button className="ask-btn" type="submit" disabled={pending || !text.trim()}>
-          send →
-        </button>
+        <div className="composer-bar">
+          <div className="composer-meta" aria-live="polite">
+            {error ? <span className="ask-error">{error}</span> : null}
+            {sniffed ? (
+              <span className="ask-sent">
+                <Nose className="ask-nose" />
+                sniffed
+              </span>
+            ) : (
+              <span className="composer-hint">no name · posts as anon</span>
+            )}
+          </div>
+          <button
+            className="composer-btn"
+            type="submit"
+            disabled={pending || !text.trim()}
+          >
+            ask
+          </button>
+        </div>
       </form>
-
-      <div className="ask-meta" aria-live="polite">
-        {error ? <span className="ask-error">{error}</span> : null}
-        {sniffed ? (
-          <span className="ask-sent">
-            <Nose className="ask-nose" />
-            sniffed
-          </span>
-        ) : null}
-      </div>
     </div>
   );
 }
