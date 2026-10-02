@@ -9,18 +9,20 @@ export default async function HomePage() {
   return (
     <main className="shell">
       <header className="top">
-        <h1 className="title">questions</h1>
-        <a
-          className="inspo"
-          href="https://jetpham.com/qa"
-          target="_blank"
-          rel="noreferrer"
-        >
-          friend inspo
-        </a>
+        <h1 className="title">ask.</h1>
+        <p className="lede">
+          leave a question or a note. no name, no account — i usually write back
+          the same day.
+        </p>
       </header>
-      <p className="lede">i usually respond day of.</p>
       <QaApp initialEntries={entries} />
+      <footer className="foot">
+        format inspired by a friend&apos;s{" "}
+        <a href="https://jetpham.com/qa" target="_blank" rel="noreferrer">
+          qa page
+        </a>
+        .
+      </footer>
     </main>
   );
 }

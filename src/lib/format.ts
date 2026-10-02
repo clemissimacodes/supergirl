@@ -1,28 +1,19 @@
 const MONTHS = [
-  "january",
-  "february",
-  "march",
-  "april",
+  "jan",
+  "feb",
+  "mar",
+  "apr",
   "may",
-  "june",
-  "july",
-  "august",
-  "september",
-  "october",
-  "november",
-  "december",
+  "jun",
+  "jul",
+  "aug",
+  "sep",
+  "oct",
+  "nov",
+  "dec",
 ] as const;
 
-function ordinal(n: number): string {
-  const j = n % 10;
-  const k = n % 100;
-  if (j === 1 && k !== 11) return `${n}st`;
-  if (j === 2 && k !== 12) return `${n}nd`;
-  if (j === 3 && k !== 13) return `${n}rd`;
-  return `${n}th`;
-}
-
-/** e.g. [september 29th, 2026, 4:25pm pst] */
+/** e.g. 29 sep · 4:25p */
 export function formatStamp(iso: string, timeZone = "America/Los_Angeles"): string {
   const date = new Date(iso);
   const parts = new Intl.DateTimeFormat("en-US", {
@@ -38,12 +29,11 @@ export function formatStamp(iso: string, timeZone = "America/Los_Angeles"): stri
   const get = (type: Intl.DateTimeFormatPartTypes) =>
     parts.find((p) => p.type === type)?.value ?? "";
 
-  const month = MONTHS[Number(get("month")) - 1] ?? "january";
-  const day = ordinal(Number(get("day")));
-  const year = get("year");
-  const hour = get("hour").toLowerCase();
+  const month = MONTHS[Number(get("month")) - 1] ?? "jan";
+  const day = get("day");
+  const hour = get("hour");
   const minute = get("minute");
-  const dayPeriod = get("dayPeriod").toLowerCase();
+  const dayPeriod = get("dayPeriod").toLowerCase().startsWith("a") ? "a" : "p";
 
-  return `[${month} ${day}, ${year}, ${hour}:${minute}${dayPeriod} pst]`;
+  return `${day} ${month} · ${hour}:${minute}${dayPeriod}`;
 }

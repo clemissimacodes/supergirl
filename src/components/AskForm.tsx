@@ -55,11 +55,12 @@ export function AskForm({ onAsked }: AskFormProps) {
           autoComplete="off"
           autoCorrect="off"
           spellCheck
+          placeholder="what’s on your mind?"
           aria-label="your question or comment"
           disabled={pending}
         />
         <button className="ask-btn" type="submit" disabled={pending || !text.trim()}>
-          ask
+          send →
         </button>
       </form>
 
@@ -68,7 +69,7 @@ export function AskForm({ onAsked }: AskFormProps) {
         {sniffed ? (
           <span className="ask-sent">
             <Nose className="ask-nose" />
-            got it
+            sniffed
           </span>
         ) : null}
       </div>

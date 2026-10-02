@@ -1,8 +1,8 @@
-# questions
+# ask
 
-Anonymous ask page — one box, no name, no account.
+Anonymous inbox — one line, no name, no account.
 
-Inspired by [jetpham.com/qa](https://jetpham.com/qa), made ours.
+Low-friction format inspired by a friend’s QA page, with its own look and voice.
 
 ## Run
 
@@ -13,7 +13,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Reply to unanswered questions at `/answer`. Set `ANSWER_SECRET` in production (required). In local dev it falls back to `local-dev-secret`.
+Reply at `/answer`. Set `ANSWER_SECRET` in production (required). In local dev it falls back to `local-dev-secret`.
 
 ```bash
 ANSWER_SECRET=something-private pnpm dev
@@ -23,4 +23,4 @@ ANSWER_SECRET=something-private pnpm dev
 
 - Submissions only accept `{ "question": "..." }` — no identity fields.
 - Data lives in `data/qa.json` (fine for local / single-server; swap the store for a DB on serverless).
-- A tiny nose appears for a moment after you ask — never as the first thing on the page.
+- A tiny nose appears briefly after you send — never as the first thing on the page.

@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { Instrument_Serif, Source_Serif_4 } from "next/font/google";
+import { Fraunces, Literata } from "next/font/google";
 import "./globals.css";
 
-const instrument = Instrument_Serif({
-  weight: "400",
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-instrument",
+  variable: "--font-fraunces",
   display: "swap",
 });
 
-const sourceSerif = Source_Serif_4({
+const literata = Literata({
   subsets: ["latin"],
-  variable: "--font-source-serif",
+  variable: "--font-literata",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "questions",
-  description: "ask me anything. no name needed.",
+  title: "ask",
+  description: "ask or leave a note. no name needed.",
 };
 
 export default function RootLayout({
@@ -26,7 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${instrument.variable} ${sourceSerif.variable}`}>
+    <html
+      lang="en"
+      className={`${fraunces.variable} ${literata.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
