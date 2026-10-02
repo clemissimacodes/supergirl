@@ -35,7 +35,7 @@ export function AskForm({ onAsked }: AskFormProps) {
       setText("");
       setSniffed(true);
       onAsked();
-      window.setTimeout(() => setSniffed(false), 1600);
+      window.setTimeout(() => setSniffed(false), 2200);
     } catch {
       setError("couldn’t reach the server");
     } finally {

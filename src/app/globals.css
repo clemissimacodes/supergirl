@@ -145,7 +145,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
-  animation: fade-sniff 1.6s ease both;
+  animation: fade-sniff 2.2s ease both;
 }
 
 .ask-nose {

@@ -13,7 +13,7 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-Reply to unanswered questions at `/answer` with `ANSWER_SECRET` (defaults to `local-dev-secret` in development).
+Reply to unanswered questions at `/answer`. Set `ANSWER_SECRET` in production (required). In local dev it falls back to `local-dev-secret`.
 
 ```bash
 ANSWER_SECRET=something-private pnpm dev

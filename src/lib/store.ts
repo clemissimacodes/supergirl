@@ -6,13 +6,27 @@ import type { QaEntry } from "./types";
 const DATA_PATH = path.join(process.cwd(), "data", "qa.json");
 
 async function readAll(): Promise<QaEntry[]> {
+  let raw: string;
   try {
-    const raw = await fs.readFile(DATA_PATH, "utf8");
-    const parsed = JSON.parse(raw) as QaEntry[];
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
+    raw = await fs.readFile(DATA_PATH, "utf8");
+  } catch (err) {
+    const code = (err as NodeJS.ErrnoException).code;
+    if (code === "ENOENT") return [];
+    throw err;
   }
+
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error("qa store is corrupt");
+  }
+
+  if (!Array.isArray(parsed)) {
+    throw new Error("qa store is corrupt");
+  }
+
+  return parsed as QaEntry[];
 }
 
 async function writeAll(entries: QaEntry[]): Promise<void> {

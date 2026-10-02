@@ -4,6 +4,14 @@ import { answerQuestion } from "@/lib/store";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
+function expectedSecret(): string | null {
+  const fromEnv = process.env.ANSWER_SECRET?.trim();
+  if (fromEnv) return fromEnv;
+  // Local convenience only — never a production default.
+  if (process.env.NODE_ENV !== "production") return "local-dev-secret";
+  return null;
+}
+
 export async function POST(request: Request) {
   let body: unknown;
   try {
@@ -21,7 +29,13 @@ export async function POST(request: Request) {
   const answer = typeof record.answer === "string" ? record.answer : "";
   const secret = typeof record.secret === "string" ? record.secret : "";
 
-  const expected = process.env.ANSWER_SECRET ?? "local-dev-secret";
+  const expected = expectedSecret();
+  if (!expected) {
+    return NextResponse.json(
+      { error: "ANSWER_SECRET is not configured" },
+      { status: 503 },
+    );
+  }
   if (!secret || secret !== expected) {
     return NextResponse.json({ error: "nope" }, { status: 401 });
   }
