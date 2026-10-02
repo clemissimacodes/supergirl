@@ -1,0 +1,262 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0a0a;
+  --fg: #eceae4;
+  --muted: #9a968c;
+  --line: #2a2a2a;
+  --line-strong: #3d3d3d;
+  --danger: #c47a7a;
+  --font-display: var(--font-instrument);
+  --font-body: var(--font-source-serif);
+}
+
+@theme inline {
+  --color-background: var(--bg);
+  --color-foreground: var(--fg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+body {
+  font-family: var(--font-body), "Times New Roman", Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+.shell {
+  width: min(720px, calc(100% - 2rem));
+  margin: 2.5rem auto 4rem;
+  border: 1px solid var(--line-strong);
+  padding: 1.35rem 1.35rem 1.6rem;
+}
+
+.top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display), Georgia, serif;
+  font-size: 1.55rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+}
+
+.inspo {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.lede {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.98rem;
+}
+
+.ask-block {
+  margin-bottom: 1.35rem;
+}
+
+.ask-row {
+  display: flex;
+  gap: 0.55rem;
+  align-items: stretch;
+}
+
+.ask-input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  font: inherit;
+  padding: 0.55rem 0.7rem;
+  outline: none;
+}
+
+.ask-input:focus {
+  border-color: var(--fg);
+}
+
+.ask-input:disabled {
+  opacity: 0.55;
+}
+
+.ask-btn {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  font: inherit;
+  font-family: var(--font-display), Georgia, serif;
+  padding: 0.55rem 0.95rem;
+  cursor: pointer;
+  text-transform: lowercase;
+}
+
+.ask-btn:hover:not(:disabled) {
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.ask-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.ask-meta {
+  min-height: 1.4rem;
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.ask-error {
+  color: var(--danger);
+}
+
+.ask-sent {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  animation: fade-sniff 1.6s ease both;
+}
+
+.ask-nose {
+  opacity: 0.7;
+}
+
+@keyframes fade-sniff {
+  0% {
+    opacity: 0;
+    transform: translateY(2px);
+  }
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  75% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.feed {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feed-item {
+  border: 1px solid var(--line);
+  padding: 0.75rem 0.85rem;
+}
+
+.feed-line {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.feed-line + .feed-line {
+  margin-top: 0.45rem;
+}
+
+.stamp {
+  color: var(--muted);
+}
+
+.role {
+  color: var(--muted);
+}
+
+.feed-empty {
+  margin: 0;
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  padding: 0.9rem;
+}
+
+.answer-page {
+  width: min(720px, calc(100% - 2rem));
+  margin: 2.5rem auto 4rem;
+}
+
+.answer-page h1 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 400;
+  font-size: 1.4rem;
+  margin: 0 0 1rem;
+}
+
+.answer-card {
+  border: 1px solid var(--line);
+  padding: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.answer-card textarea,
+.answer-card input {
+  width: 100%;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  font: inherit;
+  padding: 0.5rem 0.65rem;
+  margin-top: 0.45rem;
+}
+
+.answer-card button {
+  margin-top: 0.55rem;
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--fg);
+  font: inherit;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+@media (max-width: 540px) {
+  .shell {
+    margin-top: 1.25rem;
+    padding: 1rem;
+  }
+
+  .ask-row {
+    flex-direction: column;
+  }
+
+  .ask-btn {
+    width: 100%;
+  }
+}

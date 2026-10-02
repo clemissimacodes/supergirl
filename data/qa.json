@@ -1,0 +1,16 @@
+[
+  {
+    "id": "seed-1",
+    "question": "what is this?",
+    "askedAt": "2026-09-30T20:25:00.000Z",
+    "answer": "a place to ask me things. no account, no name — just type.",
+    "answeredAt": "2026-09-30T23:07:00.000Z"
+  },
+  {
+    "id": "seed-2",
+    "question": "why no name field?",
+    "askedAt": "2026-09-29T16:10:00.000Z",
+    "answer": "because the question matters more than who asked. stay anonymous if you want.",
+    "answeredAt": "2026-09-29T18:40:00.000Z"
+  }
+]
