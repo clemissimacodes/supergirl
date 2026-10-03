@@ -100,8 +100,8 @@ export function Feed({ entries }: FeedProps) {
                 </div>
                 <PostBody
                   kind="host"
-                  name="clemi"
-                  handle="@clemi"
+                  name="clemissima"
+                  handle="@clemissima"
                   at={entry.answeredAt!}
                   body={entry.answer!}
                 />

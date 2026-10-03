@@ -2,7 +2,7 @@
 
 Anonymous Twitter-style stream for questions and notes. No name, no account.
 
-Posts as **anon**. Replies show as a thread from **clemi**.
+Posts as **anon**. Replies show as a thread from **clemissima**.
 
 ## Run
 
