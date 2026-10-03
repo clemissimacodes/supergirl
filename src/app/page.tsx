@@ -9,8 +9,8 @@ export default async function HomePage() {
   return (
     <main className="timeline">
       <header className="timeline-top">
-        <h1 className="timeline-title">Ask</h1>
-        <p className="timeline-lede">anonymous notes. i usually reply day-of.</p>
+        <h1 className="timeline-title">Chirper</h1>
+        <p className="timeline-lede">anonymous chirps. i usually reply day-of.</p>
       </header>
       <QaApp initialEntries={entries} />
     </main>

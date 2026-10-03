@@ -9,8 +9,8 @@ const sourceSans = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "ask",
-  description: "ask or leave a note. no name needed.",
+  title: "Chirper",
+  description: "anonymous chirps. no name needed.",
 };
 
 export default function RootLayout({

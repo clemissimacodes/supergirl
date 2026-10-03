@@ -43,7 +43,7 @@ export default function AnswerPage() {
 
   return (
     <main className="answer-page">
-      <h1>answer</h1>
+      <h1>Chirper replies</h1>
       <p className="lede">private reply desk. not linked from the public page.</p>
       <label>
         secret

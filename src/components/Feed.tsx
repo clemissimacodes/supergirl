@@ -70,7 +70,7 @@ function PostBody({
 
 export function Feed({ entries }: FeedProps) {
   if (entries.length === 0) {
-    return <p className="feed-empty">quiet so far. say something.</p>;
+    return <p className="feed-empty">no chirps yet. be the first.</p>;
   }
 
   return (

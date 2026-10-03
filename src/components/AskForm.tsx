@@ -56,8 +56,8 @@ export function AskForm({ onAsked }: AskFormProps) {
           rows={2}
           autoComplete="off"
           spellCheck
-          placeholder="What’s on your mind?"
-          aria-label="your question or comment"
+          placeholder="What’s the chirp?"
+          aria-label="your chirp"
           disabled={pending}
         />
         <div className="composer-bar">
@@ -66,7 +66,7 @@ export function AskForm({ onAsked }: AskFormProps) {
             {sniffed ? (
               <span className="ask-sent">
                 <Nose className="ask-nose" />
-                sniffed
+                chirped
               </span>
             ) : (
               <span className="composer-hint">no name · posts as anon</span>
@@ -77,7 +77,7 @@ export function AskForm({ onAsked }: AskFormProps) {
             type="submit"
             disabled={pending || !text.trim()}
           >
-            ask
+            chirp
           </button>
         </div>
       </form>
