@@ -29,11 +29,11 @@ export function Thread({ initial }: { initial: QaEntry }) {
   }, [initial.id, initial.answer]);
 
   return (
-    <main className="timeline">
+    <section className="frame thread-frame">
       <header className="timeline-top">
         <div className="timeline-heading">
-          <h1 className="timeline-title">Chirp</h1>
-          <Link className="timeline-inspo" href="/">
+          <h1 className="timeline-title">a note</h1>
+          <Link className="timeline-inspo" href="/#notes">
             back
           </Link>
         </div>
@@ -47,6 +47,6 @@ export function Thread({ initial }: { initial: QaEntry }) {
       ) : (
         <p className="feed-empty">no reply yet. check back later.</p>
       )}
-    </main>
+    </section>
   );
 }

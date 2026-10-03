@@ -73,7 +73,7 @@ export function AskForm({ onAsked }: AskFormProps) {
             type="submit"
             disabled={pending || !text.trim()}
           >
-            chirp
+            send
           </button>
         </div>
       </form>

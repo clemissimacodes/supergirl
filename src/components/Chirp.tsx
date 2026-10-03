@@ -54,7 +54,7 @@ export function Chirp({ entry, onChange, staticCard = false }: ChirpProps) {
     e.stopPropagation();
     const url = `${window.location.origin}/c/${entry.id}`;
     const payload = {
-      title: "Chirper",
+      title: "Clementine Kay Shao",
       text: entry.question,
       url,
     };

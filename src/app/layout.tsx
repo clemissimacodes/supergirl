@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { EB_Garamond } from "next/font/google";
+import { AskFrame } from "@/components/AskFrame";
 import "./globals.css";
 
 const garamond = EB_Garamond({
@@ -9,9 +10,11 @@ const garamond = EB_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Chirper — Clementine Kay Shao",
-  description: "the better twitter — ask anything anonymously.",
+  title: "Clementine Kay Shao",
+  description: "i welcome all questions, thoughts, & well wishes",
 };
+
+export const dynamic = "force-dynamic";
 
 export default function RootLayout({
   children,
@@ -27,6 +30,7 @@ export default function RootLayout({
           </a>
         </header>
         {children}
+        <AskFrame />
       </body>
     </html>
   );

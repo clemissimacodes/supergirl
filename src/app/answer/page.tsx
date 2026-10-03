@@ -43,8 +43,8 @@ export default function AnswerPage() {
   const ranked = [...entries].sort((a, b) => b.views - a.views);
 
   return (
-    <main className="answer-page">
-      <h1>Chirper replies</h1>
+    <main className="frame answer-page">
+      <h1>replies</h1>
       <p className="lede">private reply desk. not linked from the public page.</p>
       <label>
         secret
