@@ -30,23 +30,25 @@ export function Thread({ initial }: { initial: QaEntry }) {
 
   return (
     <section className="frame thread-frame">
-      <header className="timeline-top">
-        <div className="timeline-heading">
-          <h1 className="timeline-title">a note</h1>
-          <Link className="timeline-inspo" href="/#notes">
-            back
-          </Link>
-        </div>
-        <p className="timeline-lede">
-          {entry.views} open{entry.views === 1 ? "" : "s"}
-        </p>
-      </header>
-      <Chirp entry={entry} onChange={setEntry} staticCard />
-      {entry.answer ? (
-        <Reply entry={entry} />
-      ) : (
-        <p className="feed-empty">no reply yet. check back later.</p>
-      )}
+      <div className="thread-inner">
+        <header className="timeline-top">
+          <div className="timeline-heading">
+            <h1 className="timeline-title">a note</h1>
+            <Link className="timeline-inspo" href="/#notes">
+              back
+            </Link>
+          </div>
+          <p className="timeline-lede">
+            {entry.views} open{entry.views === 1 ? "" : "s"}
+          </p>
+        </header>
+        <Chirp entry={entry} onChange={setEntry} staticCard />
+        {entry.answer ? (
+          <Reply entry={entry} />
+        ) : (
+          <p className="feed-empty">no reply yet. check back later.</p>
+        )}
+      </div>
     </section>
   );
 }
