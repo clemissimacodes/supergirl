@@ -11,13 +11,8 @@ export default async function HomePage() {
       <header className="timeline-top">
         <div className="timeline-heading">
           <h1 className="timeline-title">Chirper</h1>
-          <a
-            className="timeline-inspo"
-            href="https://jetpham.com/qa"
-            target="_blank"
-            rel="noreferrer"
-          >
-            friend inspo
+          <a className="timeline-inspo" href="/inspos">
+            inspos
           </a>
         </div>
         <p className="timeline-lede">i usually respond day of.</p>

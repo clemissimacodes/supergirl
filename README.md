@@ -19,3 +19,4 @@ Reply at `/answer`. Set `ANSWER_SECRET` in production (required). Local fallback
 
 - Submit body is only `{ "question": "..." }` — no identity fields.
 - Data: `data/qa.json` (swap for a DB on serverless).
+- Inspos: `/inspos` — 1. jia, 2. jet.
