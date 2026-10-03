@@ -1,17 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #000000;
-  --bg-elev: #0a0a0a;
-  --fg: #e7e9ea;
-  --muted: #71767b;
-  --line: #2f3336;
-  --accent: #8fbfa8;
-  --accent-strong: #6a9e84;
-  --like: #f91880;
-  --danger: #f4212e;
-  --anon: #3a4250;
-  --host: #1c2a24;
+  --bg: #f6f1e8;
+  --bg-elev: #faf6ee;
+  --fg: #161412;
+  --muted: rgba(22, 20, 18, 0.45);
+  --line: rgba(22, 20, 18, 0.12);
+  --accent: #c45c2a;
+  --accent-strong: #a74b20;
+  --like: #c45c2a;
+  --danger: #b42318;
+  --on-accent: #f6f1e8;
+  --anon: #e4ddd0;
+  --host: #ead7c4;
 }
 
 @theme inline {
@@ -32,27 +33,51 @@ body {
 }
 
 body {
-  font-family: var(--font-sans), "Segoe UI", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  line-height: 1.4;
+  font-family: var(--font-book), "Palatino Linotype", Palatino, "Times New Roman", serif;
+  font-size: 1.02rem;
+  font-weight: 400;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
 
 a {
-  color: var(--accent);
+  color: inherit;
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+  text-underline-offset: 0.16em;
+  text-decoration-thickness: 1px;
+}
+
+.site-masthead {
+  position: relative;
+  z-index: 20;
+  padding: 2.25rem 6vw 0;
+}
+
+.site-anchor {
+  display: inline-block;
+  color: var(--fg);
+  font-size: 1.45rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.site-anchor:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
 }
 
 .timeline {
-  width: min(598px, 100%);
-  min-height: 100vh;
-  margin: 0 auto;
-  border-left: 1px solid var(--line);
-  border-right: 1px solid var(--line);
+  width: min(34rem, calc(100% - 12vw));
+  min-height: calc(100vh - 4rem);
+  margin: 1.25rem auto 0;
+  border-left: 0;
+  border-right: 0;
 }
 
 .timeline-top {
@@ -60,7 +85,7 @@ a:hover {
   top: 0;
   z-index: 5;
   padding: 0.85rem 1rem 0.75rem;
-  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
 }
@@ -74,8 +99,8 @@ a:hover {
 
 .timeline-title {
   margin: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.65rem;
+  font-weight: 400;
   letter-spacing: -0.02em;
 }
 
@@ -98,7 +123,7 @@ a:hover {
 
 .inspo-inline a {
   color: var(--fg);
-  font-weight: 700;
+  font-weight: 400;
   text-decoration: none;
 }
 
@@ -166,18 +191,17 @@ a:hover {
 .composer-btn {
   border: 0;
   border-radius: 999px;
-  background: var(--accent);
-  color: #04110c;
+  background: var(--fg);
+  color: var(--on-accent);
   font: inherit;
-  font-weight: 700;
-  font-size: 0.82rem;
+  font-weight: 500;
   padding: 0.28rem 0.85rem;
   cursor: pointer;
   transition: background 140ms ease, opacity 140ms ease;
 }
 
 .composer-btn:hover:not(:disabled) {
-  background: var(--accent-strong);
+  background: #2a2622;
 }
 
 .composer-btn:disabled {
@@ -211,21 +235,22 @@ a:hover {
 }
 
 .avatar-anon {
-  background: linear-gradient(145deg, #2c3340, #1a1f28);
-  border: 1px solid #3d4452;
+  background: #e8e1d4;
+  border: 1px solid var(--line);
 }
 
 .avatar-dot {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: #8b93a1;
+  background: rgba(22, 20, 18, 0.35);
 }
 
 .avatar-host {
-  background: linear-gradient(145deg, #2a4338, #15231d);
-  border: 1px solid #3f6a55;
-  color: var(--accent);
+  object-fit: cover;
+  object-position: 50% 12%;
+  background: #ead7c4;
+  border: 1px solid var(--line);
 }
 
 .avatar-initial {
@@ -276,7 +301,7 @@ a:hover {
 
 .tweet:hover,
 .tweet-reply:hover {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(22, 20, 18, 0.03);
 }
 
 .tweet-rail {
@@ -318,7 +343,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  font-weight: 700;
+  font-weight: 500;
   color: var(--fg);
 }
 
@@ -326,7 +351,7 @@ a:hover {
   width: 14px;
   height: 14px;
   border-radius: 999px;
-  background: var(--accent);
+  background: var(--fg);
   position: relative;
 }
 
@@ -334,7 +359,7 @@ a:hover {
   content: "";
   position: absolute;
   inset: 3px 5px 4px 5px;
-  border: 1.5px solid #04110c;
+  border: 1.5px solid var(--bg);
   border-top: 0;
   border-left: 0;
   transform: rotate(40deg);
@@ -409,12 +434,10 @@ a:hover {
 }
 
 .answer-page {
-  width: min(598px, 100%);
-  min-height: 100vh;
-  margin: 0 auto;
-  padding: 1.25rem 1rem 3rem;
-  border-left: 1px solid var(--line);
-  border-right: 1px solid var(--line);
+  width: min(34rem, calc(100% - 12vw));
+  min-height: calc(100vh - 4rem);
+  margin: 1.25rem auto 0;
+  padding: 0 0 3rem;
 }
 
 .answer-page h1 {
@@ -502,8 +525,8 @@ a:hover {
   margin-top: 0.65rem;
   border: 0;
   border-radius: 999px;
-  background: var(--accent);
-  color: #04110c;
+  background: var(--fg);
+  color: var(--on-accent);
   font: inherit;
   font-weight: 700;
   padding: 0.4rem 1rem;

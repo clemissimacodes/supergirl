@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Source_Sans_3 } from "next/font/google";
+import { EB_Garamond } from "next/font/google";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+const garamond = EB_Garamond({
   subsets: ["latin"],
-  variable: "--font-sans",
+  variable: "--font-book",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Chirper",
+  title: "Chirper — Clementine Kay Shao",
   description: "the better twitter — ask anything anonymously.",
 };
 
@@ -19,8 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={sourceSans.variable}>
-      <body>{children}</body>
+    <html lang="en" className={garamond.variable}>
+      <body>
+        <header className="site-masthead">
+          <a className="site-anchor" href="https://clemissima.com">
+            Clementine Kay Shao
+          </a>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }

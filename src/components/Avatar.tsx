@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 type AvatarProps = {
   kind: "anon" | "host";
   className?: string;
@@ -6,9 +8,13 @@ type AvatarProps = {
 export function Avatar({ kind, className = "" }: AvatarProps) {
   if (kind === "host") {
     return (
-      <div className={`avatar avatar-host ${className}`} aria-hidden>
-        <span className="avatar-initial">c</span>
-      </div>
+      <Image
+        className={`avatar avatar-host ${className}`}
+        src="/clemi-still.png"
+        alt=""
+        width={40}
+        height={40}
+      />
     );
   }
 
