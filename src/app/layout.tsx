@@ -10,7 +10,7 @@ const sourceSans = Source_Sans_3({
 
 export const metadata: Metadata = {
   title: "Chirper",
-  description: "ask me anything. no name needed. i usually respond day of.",
+  description: "the better twitter — ask anything anonymously.",
 };
 
 export default function RootLayout({

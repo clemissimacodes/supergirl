@@ -90,6 +90,23 @@ a:hover {
   color: var(--fg);
 }
 
+.inspo-inline {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.inspo-inline a {
+  color: var(--fg);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.inspo-inline a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .timeline-lede {
   margin: 0.2rem 0 0;
   color: var(--muted);
@@ -99,13 +116,14 @@ a:hover {
 .composer {
   display: grid;
   grid-template-columns: 40px 1fr;
-  gap: 0.75rem;
-  padding: 0.85rem 1rem 0.75rem;
+  gap: 0.65rem;
+  padding: 0.55rem 1rem 0.5rem;
   border-bottom: 1px solid var(--line);
 }
 
-.composer-main {
-  min-width: 0;
+.composer .avatar {
+  width: 32px;
+  height: 32px;
 }
 
 .composer-input {
@@ -115,10 +133,11 @@ a:hover {
   border: 0;
   color: var(--fg);
   font: inherit;
-  font-size: 1.2rem;
+  font-size: 0.95rem;
   line-height: 1.35;
-  padding: 0.25rem 0 0.75rem;
+  padding: 0.15rem 0 0.4rem;
   outline: none;
+  min-height: 1.6rem;
 }
 
 .composer-input::placeholder {
@@ -151,8 +170,8 @@ a:hover {
   color: #04110c;
   font: inherit;
   font-weight: 700;
-  font-size: 0.92rem;
-  padding: 0.4rem 1rem;
+  font-size: 0.82rem;
+  padding: 0.28rem 0.85rem;
   cursor: pointer;
   transition: background 140ms ease, opacity 140ms ease;
 }
@@ -239,6 +258,15 @@ a:hover {
   grid-template-columns: 40px 1fr;
   gap: 0.75rem;
   padding: 0.85rem 1rem 0.35rem;
+}
+
+.tweet.is-clickable {
+  cursor: pointer;
+}
+
+.tweet.is-clickable:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
 }
 
 .tweet-reply {
@@ -350,10 +378,34 @@ a:hover {
   gap: 0.3rem;
   min-width: 3rem;
   font-size: 0.82rem;
+  background: none;
+  border: 0;
+  padding: 0.2rem 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
 }
 
 .tweet-action.is-on {
   color: var(--accent);
+}
+
+.tweet-action.is-like {
+  color: var(--like);
+}
+
+.tweet-views {
+  cursor: default;
+  font-variant-numeric: tabular-nums;
+}
+
+.view-ticker {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.share-note {
+  font-size: 0.72rem;
 }
 
 .answer-page {
@@ -374,6 +426,43 @@ a:hover {
 .answer-page .lede {
   margin: 0 0 1.25rem;
   color: var(--muted);
+}
+
+.answer-stats {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.answer-sub {
+  margin: 1.5rem 0 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.view-board {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+}
+
+.view-board li {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 0.6rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--fg);
+  font-size: 0.92rem;
+}
+
+.view-board .view-ticker {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
 }
 
 .answer-page label {
@@ -419,46 +508,6 @@ a:hover {
   font-weight: 700;
   padding: 0.4rem 1rem;
   cursor: pointer;
-}
-
-.inspo-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.inspo-row {
-  display: grid;
-  grid-template-columns: 1.5rem 1fr auto;
-  align-items: baseline;
-  gap: 0.75rem;
-  padding: 1rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.inspo-row:hover {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.inspo-n {
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
-
-.inspo-row a {
-  color: var(--fg);
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.inspo-row a:hover {
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-}
-
-.inspo-note {
-  color: var(--muted);
-  font-size: 0.86rem;
 }
 
 @media (max-width: 640px) {

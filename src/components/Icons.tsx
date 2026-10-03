@@ -15,36 +15,33 @@ export function IconReply({ className = "" }: IconProps) {
   );
 }
 
-export function IconRepost({ className = "" }: IconProps) {
+export function IconHeart({ className = "", filled = false }: IconProps & { filled?: boolean }) {
   return (
-    <svg className={className} width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
-      <path
-        d="M7.5 7.5H16a3 3 0 0 1 3 3V13"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-      <path d="m14.5 4.5 3 3-3 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-      <path
-        d="M16.5 16.5H8a3 3 0 0 1-3-3V11"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-      />
-      <path d="m9.5 19.5-3-3 3-3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-export function IconHeart({ className = "" }: IconProps) {
-  return (
-    <svg className={className} width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+    <svg
+      className={className}
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill={filled ? "currentColor" : "none"}
+      aria-hidden
+    >
       <path
         d="M12 20s-6.5-4.05-8.6-7.4C1.7 9.8 2.9 6.5 6 5.55c1.7-.52 3.5-.1 4.7 1.15L12 8l1.3-1.3c1.2-1.25 3-1.67 4.7-1.15 3.1.95 4.3 4.25 2.6 7.05C18.5 15.95 12 20 12 20Z"
         stroke="currentColor"
         strokeWidth="1.6"
         strokeLinejoin="round"
       />
+    </svg>
+  );
+}
+
+export function IconViews({ className = "" }: IconProps) {
+  return (
+    <svg className={className} width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+      <path d="M4.5 18.5v-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M10 18.5V8" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M15.5 18.5V5.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+      <path d="M21 18.5v-9" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
     </svg>
   );
 }

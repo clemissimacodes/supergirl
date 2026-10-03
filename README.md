@@ -1,8 +1,8 @@
 # Chirper
 
-Anonymous Twitter-style stream for questions and notes. No name, no account.
+the better twitter — ask anything anonymously.
 
-Posts as **anon**. Replies show as a thread from **clemissima**.
+Posts as **anon**. Click a chirp to read **clemissima**’s reply. Opens (views) tick up when someone peeks.
 
 ## Run
 
@@ -19,4 +19,4 @@ Reply at `/answer`. Set `ANSWER_SECRET` in production (required). Local fallback
 
 - Submit body is only `{ "question": "..." }` — no identity fields.
 - Data: `data/qa.json` (swap for a DB on serverless).
-- Inspos: `/inspos` — 1. jia, 2. jet.
+- Inspos in the header: **1** jia, **2** jet.

@@ -52,11 +52,11 @@ export function AskForm({ onAsked }: AskFormProps) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           maxLength={1000}
-          rows={2}
+          rows={1}
           autoComplete="off"
           spellCheck
-          placeholder="ask anything"
-          aria-label="your question or note"
+          placeholder="ask anything anonymously"
+          aria-label="ask anything anonymously"
           disabled={pending}
         />
         <div className="composer-bar">

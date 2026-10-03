@@ -40,6 +40,7 @@ export default function AnswerPage() {
   }
 
   const unanswered = entries.filter((e) => !e.answer);
+  const ranked = [...entries].sort((a, b) => b.views - a.views);
 
   return (
     <main className="answer-page">
@@ -56,6 +57,16 @@ export default function AnswerPage() {
       </label>
       {status ? <p className="ask-meta">{status}</p> : null}
 
+      <h2 className="answer-sub">opens</h2>
+      <ul className="view-board">
+        {ranked.map((entry) => (
+          <li key={`v-${entry.id}`}>
+            <span className="view-ticker">{entry.views}</span>
+            <span>{entry.question}</span>
+          </li>
+        ))}
+      </ul>
+
       {unanswered.length === 0 ? (
         <p className="feed-empty">all caught up.</p>
       ) : (
@@ -67,6 +78,10 @@ export default function AnswerPage() {
           >
             <p>
               <span className="role">q:</span> {entry.question}
+            </p>
+            <p className="answer-stats">
+              {entry.views} open{entry.views === 1 ? "" : "s"} · {entry.likes} like
+              {entry.likes === 1 ? "" : "s"}
             </p>
             <textarea
               rows={3}

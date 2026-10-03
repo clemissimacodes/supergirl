@@ -23,10 +23,16 @@ export function QaApp({ initialEntries }: QaAppProps) {
     }
   }, []);
 
+  function onChange(updated: QaEntry) {
+    setEntries((prev) =>
+      prev.map((item) => (item.id === updated.id ? updated : item)),
+    );
+  }
+
   return (
     <>
       <AskForm onAsked={refresh} />
-      <Feed entries={entries} />
+      <Feed entries={entries} onChange={onChange} />
     </>
   );
 }
