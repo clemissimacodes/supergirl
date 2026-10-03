@@ -65,11 +65,29 @@ a:hover {
   border-bottom: 1px solid var(--line);
 }
 
+.timeline-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
 .timeline-title {
   margin: 0;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+}
+
+.timeline-inspo {
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.timeline-inspo:hover {
+  color: var(--fg);
 }
 
 .timeline-lede {
@@ -153,33 +171,15 @@ a:hover {
 }
 
 .ask-sent {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
   color: var(--accent);
-  animation: fade-sniff 2.2s ease both;
+  animation: fade-sent 1.8s ease both;
 }
 
-.ask-nose {
-  width: 12px;
-  height: 15px;
-}
-
-@keyframes fade-sniff {
-  0% {
-    opacity: 0;
-    transform: translateY(2px);
-  }
-  18% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+@keyframes fade-sent {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .avatar {
@@ -209,9 +209,11 @@ a:hover {
   color: var(--accent);
 }
 
-.avatar-nose {
-  width: 14px;
-  height: 18px;
+.avatar-initial {
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: lowercase;
+  line-height: 1;
 }
 
 .feed {

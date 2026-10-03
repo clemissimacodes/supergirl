@@ -1,8 +1,8 @@
 # Chirper
 
-Anonymous Twitter-style stream. No name, no account — just chirp.
+Anonymous Twitter-style stream for questions and notes. No name, no account.
 
-Posts as **anon**. Host replies show up as threaded tweets.
+Posts as **anon**. Replies show as a thread from **clemi**.
 
 ## Run
 
@@ -19,4 +19,3 @@ Reply at `/answer`. Set `ANSWER_SECRET` in production (required). Local fallback
 
 - Submit body is only `{ "question": "..." }` — no identity fields.
 - Data: `data/qa.json` (swap for a DB on serverless).
-- Tiny nose appears after send + as the host avatar — never as a hero.

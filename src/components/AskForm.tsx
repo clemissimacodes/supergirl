@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import { Avatar } from "./Avatar";
-import { Nose } from "./Nose";
 
 type AskFormProps = {
   onAsked: () => void;
@@ -12,7 +11,7 @@ export function AskForm({ onAsked }: AskFormProps) {
   const [text, setText] = useState("");
   const [pending, setPending] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [sniffed, setSniffed] = useState(false);
+  const [sent, setSent] = useState(false);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
@@ -34,9 +33,9 @@ export function AskForm({ onAsked }: AskFormProps) {
         return;
       }
       setText("");
-      setSniffed(true);
+      setSent(true);
       onAsked();
-      window.setTimeout(() => setSniffed(false), 2200);
+      window.setTimeout(() => setSent(false), 1800);
     } catch {
       setError("couldn’t reach the server");
     } finally {
@@ -56,18 +55,15 @@ export function AskForm({ onAsked }: AskFormProps) {
           rows={2}
           autoComplete="off"
           spellCheck
-          placeholder="What’s the chirp?"
-          aria-label="your chirp"
+          placeholder="ask anything"
+          aria-label="your question or note"
           disabled={pending}
         />
         <div className="composer-bar">
           <div className="composer-meta" aria-live="polite">
             {error ? <span className="ask-error">{error}</span> : null}
-            {sniffed ? (
-              <span className="ask-sent">
-                <Nose className="ask-nose" />
-                chirped
-              </span>
+            {sent ? (
+              <span className="ask-sent">sent</span>
             ) : (
               <span className="composer-hint">no name · posts as anon</span>
             )}

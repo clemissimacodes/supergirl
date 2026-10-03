@@ -70,7 +70,7 @@ function PostBody({
 
 export function Feed({ entries }: FeedProps) {
   if (entries.length === 0) {
-    return <p className="feed-empty">no chirps yet. be the first.</p>;
+    return <p className="feed-empty">nothing here yet. be the first.</p>;
   }
 
   return (
@@ -100,8 +100,8 @@ export function Feed({ entries }: FeedProps) {
                 </div>
                 <PostBody
                   kind="host"
-                  name="clemmie"
-                  handle="@clemmie"
+                  name="clemi"
+                  handle="@clemi"
                   at={entry.answeredAt!}
                   body={entry.answer!}
                 />

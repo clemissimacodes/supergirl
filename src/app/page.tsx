@@ -9,8 +9,18 @@ export default async function HomePage() {
   return (
     <main className="timeline">
       <header className="timeline-top">
-        <h1 className="timeline-title">Chirper</h1>
-        <p className="timeline-lede">anonymous chirps. i usually reply day-of.</p>
+        <div className="timeline-heading">
+          <h1 className="timeline-title">Chirper</h1>
+          <a
+            className="timeline-inspo"
+            href="https://jetpham.com/qa"
+            target="_blank"
+            rel="noreferrer"
+          >
+            friend inspo
+          </a>
+        </div>
+        <p className="timeline-lede">i usually respond day of.</p>
       </header>
       <QaApp initialEntries={entries} />
     </main>
