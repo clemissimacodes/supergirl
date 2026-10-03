@@ -383,10 +383,6 @@ a:hover {
   font-size: 0.82rem;
 }
 
-.composer-hint {
-  color: var(--muted);
-}
-
 .composer-btn {
   border: 0;
   border-radius: 999px;

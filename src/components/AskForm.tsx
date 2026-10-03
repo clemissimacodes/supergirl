@@ -62,11 +62,7 @@ export function AskForm({ onAsked }: AskFormProps) {
         <div className="composer-bar">
           <div className="composer-meta" aria-live="polite">
             {error ? <span className="ask-error">{error}</span> : null}
-            {sent ? (
-              <span className="ask-sent">sent</span>
-            ) : (
-              <span className="composer-hint">no name · posts as anon</span>
-            )}
+            {sent ? <span className="ask-sent">sent</span> : null}
           </div>
           <button
             className="composer-btn"
